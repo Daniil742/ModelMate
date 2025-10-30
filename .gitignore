@@ -416,3 +416,7 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+/src/ModelMate.Api/appsettings.Development.json
+/src/ModelMate.Api/appsettings.json
+/src/ModelMate.Bot/appsettings.Development.json
+/src/ModelMate.Bot/appsettings.json
