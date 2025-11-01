@@ -1,12 +1,38 @@
+using Microsoft.Extensions.Options;
+using ModelMate.Bot.Configurations;
+using ModelMate.Bot.Handlers;
+using ModelMate.Bot.Services;
+using Telegram.Bot;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+builder.Services.AddOptions<BotConfiguration>()
+    .Bind(builder.Configuration.GetSection(BotConfiguration.ConfigurationSectionName))
+    .ValidateDataAnnotations()
+    .ValidateOnStart();
+
+builder.Services.AddHttpClient("telegram_bot_client")
+    .RemoveAllLoggers()
+    .AddTypedClient<ITelegramBotClient>((httpClient, provider) =>
+    {
+        var configuration = provider.GetService<IOptions<BotConfiguration>>()?.Value;
+
+        ArgumentNullException.ThrowIfNull(configuration);
+
+        var options = new TelegramBotClientOptions(configuration.BotToken);
+
+        return new TelegramBotClient(options, httpClient);
+    });
+
+builder.Services.AddScoped<UpdateHandler>();
+builder.Services.AddScoped<ReceiverService>();
+
+builder.Services.AddHostedService<PollingService>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
@@ -14,28 +40,4 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast = Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast");
-
 app.Run();
-
-internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}

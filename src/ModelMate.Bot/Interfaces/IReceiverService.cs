@@ -1,0 +1,6 @@
+﻿namespace ModelMate.Bot.Interfaces;
+
+public interface IReceiverService
+{
+    Task ReceiveAsync(CancellationToken stoppingToken);
+}
