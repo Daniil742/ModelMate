@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>modelmate.webapp</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        // --- БАЗОВАЯ ПАЛИТРА (из AdminPanelPage) ---
+                        "primary": "#007bff",
+                        "background-light": "#F8F9FA",
+                        "background-dark": "#0f1923", // Взял самый темный для консистентности
+                        "card-light": "#FFFFFF",
+                        "card-dark": "#1a2632", // Взял из AdminPanelPage
+                        "text-primary-light": "#212529",
+                        "text-primary-dark": "#f8f9fa",
+                        "text-secondary-light": "#6C757D",
+                        "text-secondary-dark": "#adb5bd",
+                        "border-light": "#E9ECEF",
+                        "border-dark": "#343a40",
+                        "success": "#28A745",
+                        "danger": "#DC3745",
+
+                        // --- ДОПОЛНИТЕЛЬНЫЕ ЦВЕТА (из UsersPage) ---
+                        "plan-pro-bg-light": "#D1FAE5",
+                        "plan-pro-text-light": "#065F46",
+                        "plan-pro-bg-dark": "#064E3B",
+                        "plan-pro-text-dark": "#A7F3D0",
+                        "plan-free-bg-light": "#E2E8F0",
+                        "plan-free-text-light": "#475569",
+                        "plan-free-bg-dark": "#334155",
+                        "plan-free-text-dark": "#CBD5E1",
+
+                        // --- ДОПОЛНИТЕЛЬНЫЕ ЦВЕТА (из ModelsCatalogPage) ---
+                        "search-light": "#e6ebf4",
+                        "search-dark": "#334155",
+
+                        // --- ДОПОЛНИТЕЛЬНЫЕ ЦВЕТА (из ModelAdditionPage) ---
+                        // "component-light" - это то же самое, что "card-light"
+                        // "component-dark" - похоже на "card-dark"
+                        "warning-icon": "#F6AD55",
+                    },
+                    fontFamily: {
+                        // --- ЕДИНЫЙ ШРИФТ (из всех конфигов) ---
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        // --- ЕДИНЫЙ BORDER RADIUS (самый частый) ---
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+</body>
+</html>

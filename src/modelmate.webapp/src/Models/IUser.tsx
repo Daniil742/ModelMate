@@ -1,0 +1,8 @@
+export interface IUser {
+    id: string;
+    name: string;
+    username: string;
+    avatarUrl: string;
+    plan: 'Pro' | 'Free';
+    joinedDate: string;
+};

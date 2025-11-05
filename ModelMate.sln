@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelMate.Bot", "src\ModelM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelMate.Api", "src\ModelMate.Api\ModelMate.Api.csproj", "{827D84C5-14FA-48B0-B904-76BE13B5501F}"
 EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "modelmate.webapp", "src\ModelMate.WebApp\modelmate.webapp.esproj", "{0BA7F7A2-AC04-72D0-EAC5-A33E130C8786}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,12 @@ Global
 		{827D84C5-14FA-48B0-B904-76BE13B5501F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{827D84C5-14FA-48B0-B904-76BE13B5501F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{827D84C5-14FA-48B0-B904-76BE13B5501F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BA7F7A2-AC04-72D0-EAC5-A33E130C8786}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BA7F7A2-AC04-72D0-EAC5-A33E130C8786}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BA7F7A2-AC04-72D0-EAC5-A33E130C8786}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{0BA7F7A2-AC04-72D0-EAC5-A33E130C8786}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BA7F7A2-AC04-72D0-EAC5-A33E130C8786}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BA7F7A2-AC04-72D0-EAC5-A33E130C8786}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -420,3 +420,5 @@ FodyWeavers.xsd
 /src/ModelMate.Api/appsettings.json
 /src/ModelMate.Bot/appsettings.Development.json
 /src/ModelMate.Bot/appsettings.json
+/src/modelmate.webapp/package.json
+/src/modelmate.webapp/package-lock.json
